@@ -23,7 +23,6 @@ const loginUser = async (payload: TLoginUser) => {
         role: user.role,
         name: user.name,
         mobileNumber: user.mobileNumber,
-        address: user.address,
         profilePhoto: user.profilePhoto,
     }
 

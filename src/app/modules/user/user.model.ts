@@ -34,10 +34,6 @@ const userSchema = new Schema<TUser, UserModel>(
         passwordChangedAt: {
             type: Date,
         },
-        address: {
-            type: String,
-            required: true
-        }
     },
     {
         timestamps: true,

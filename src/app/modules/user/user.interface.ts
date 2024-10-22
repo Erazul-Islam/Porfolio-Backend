@@ -10,7 +10,6 @@ export interface TUser {
     profilePhoto: string,
     needsPasswordChange: boolean;
     passwordChangedAt?: Date;
-    address: string,
     createdAt: Date,
     updatedAt: Date,
     role: 'ADMIN' | 'USER',
