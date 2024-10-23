@@ -6,7 +6,6 @@ export interface TUser {
     name: string,
     email: string,
     password: string,
-    mobileNumber: string,
     profilePhoto: string,
     needsPasswordChange: boolean;
     passwordChangedAt?: Date;
