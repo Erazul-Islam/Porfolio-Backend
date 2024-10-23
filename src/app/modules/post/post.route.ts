@@ -6,5 +6,6 @@ import { postController } from './post.controller'
 const router = express.Router()
 
 router.post('/', validateRequest(postValidation.postValidationSchema), postController.addPostController)
+router.get('/', postController.getAllblogs)
 
 export const blogRoute = router

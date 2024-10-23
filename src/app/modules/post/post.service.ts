@@ -31,6 +31,13 @@ const addPost = async (payload: TPost, token: string) => {
     return result
 }
 
+const getAllBlogs = async () => {
+    const result = await blogmodel.find()
+    return result
+}
+
+
 export const blogService = {
-    addPost
+    addPost,
+    getAllBlogs
 }

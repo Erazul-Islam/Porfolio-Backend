@@ -20,6 +20,23 @@ const addPostController = catchAsync(async (req: Request, res: Response) => {
     })
 })
 
+const getAllblogs = async (req: Request, res: Response) => {
+
+    try {
+        const result = await blogService.getAllBlogs()
+        res.status(200).json({
+            statusCode: 200,
+            status: 200,
+            success: true,
+            message: "Blogs retrieved successfully",
+            data: result
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 export const postController = {
-    addPostController
+    addPostController,
+    getAllblogs
 }

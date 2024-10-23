@@ -9,7 +9,6 @@ export const sendEmail = async (to:string,html :string) => {
             pass : 'thec grsj hoim bnyz'
         }
     })
-
     await transporter.sendMail({
         from : 'erazul89@gmail.com',
         to,
