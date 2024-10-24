@@ -9,3 +9,4 @@ export type TPost = {
     userEmail : string
     userProfile : string
 }
+
