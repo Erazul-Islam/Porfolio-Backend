@@ -18,6 +18,10 @@ const postSchema = new Schema<TPost>(
             type: String,
             required: true
         },
+        photo : {
+            type : String,
+            required : true
+        },
         userId: {
             type: String,
             required: true

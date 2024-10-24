@@ -1,5 +1,3 @@
-
-
 export type TPost = {
     _id : string,
     caption : string,
@@ -7,6 +5,6 @@ export type TPost = {
     userId : string,
     userName : string
     userEmail : string
-    userProfile : string
+    userProfile : string,
+    photo : string
 }
-

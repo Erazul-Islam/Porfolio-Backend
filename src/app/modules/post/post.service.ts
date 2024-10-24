@@ -36,8 +36,24 @@ const getAllBlogs = async () => {
     return result
 }
 
+const getUpdatedBlogFromDB = async (id: string, payload: Partial<TPost>) => {
+    try {
+        const updatedBlog = await blogmodel.findOneAndUpdate({ _id: id }, payload, { new: true })
+        return updatedBlog
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const deletedFromDB = async (id: string) => {
+    const result = await blogmodel.deleteOne({ _id: id })
+    return result
+}
+
 
 export const blogService = {
     addPost,
-    getAllBlogs
+    getAllBlogs,
+    getUpdatedBlogFromDB,
+    deletedFromDB
 }

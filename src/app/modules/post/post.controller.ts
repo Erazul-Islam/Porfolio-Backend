@@ -36,7 +36,44 @@ const getAllblogs = async (req: Request, res: Response) => {
     }
 }
 
+const getUpdatedBlog = async (req: Request, res: Response) => {
+    const blogId = req.params.blogId
+    const updatedData = req.body
+
+    try {
+        const updatedBike = await blogService.getUpdatedBlogFromDB(blogId, updatedData)
+
+        res.status(200).json({
+            success: true,
+            message: "Blog updated successfully!",
+            data: updatedBike
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+const deleteSingleBlog = async (req: Request, res: Response) => {
+
+    try {
+
+        const blogId = req.params.blogId;
+
+        const result = await blogService.deletedFromDB(blogId)
+        res.status(200).json({
+            success: true,
+            message: "blog deleted successfully!",
+            data: result
+        })
+    } catch (err) {
+        console.log(err)
+    }
+
+}
+
 export const postController = {
     addPostController,
-    getAllblogs
+    getAllblogs,
+    getUpdatedBlog,
+    deleteSingleBlog
 }

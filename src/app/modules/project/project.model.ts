@@ -9,6 +9,18 @@ const postSchema = new Schema<TProject>(
         link : {
             type : String,
             required : true
+        },
+        image : {
+            type : String,
+            required : true
+        },
+        client : {
+            type : String,
+            required : true
+        },
+        backend : {
+            type : String,
+            required : true
         }
         
     },
