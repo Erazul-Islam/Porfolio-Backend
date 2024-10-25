@@ -1,9 +1,9 @@
 
 import { Request, Response } from 'express';
-import httpStatus from 'http-status';
+// import httpStatus from 'http-status';
 
 const notFound = (req: Request, res: Response) => {
-    return res.status(httpStatus.NOT_FOUND).json({
+    return res.status(400).json({
         success: false,
         message: 'Cannot found this route',
     });

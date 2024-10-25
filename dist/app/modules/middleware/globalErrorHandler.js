@@ -62,12 +62,11 @@ const globalErrorHandler = (err, req, res, next) => {
             },
         ];
     }
-    //ultimate return
-    return res.status(statusCode).json({
+    res.status(statusCode).json({
         success: false,
         message,
         errorSources,
-        err,
     });
+    return;
 };
 exports.default = globalErrorHandler;

@@ -5,12 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const AppError_1 = __importDefault(require("../../error/AppError"));
-const http_status_1 = __importDefault(require("http-status"));
+// import httpStatus from 'http-status';
 const config_1 = __importDefault(require("../../config"));
 const verifyToken = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return next(new AppError_1.default(http_status_1.default.UNAUTHORIZED, 'Authorization token missing or invalid'));
+        return next(new AppError_1.default(400, 'Authorization token missing or invalid'));
     }
     const token = authHeader.split(' ')[1];
     try {
@@ -19,7 +19,7 @@ const verifyToken = (req, res, next) => {
         next();
     }
     catch (_a) {
-        return next(new AppError_1.default(http_status_1.default.UNAUTHORIZED, 'Invalid or expired token'));
+        return next(new AppError_1.default(400, 'Invalid or expired token'));
     }
 };
 exports.default = verifyToken;

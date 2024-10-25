@@ -1,4 +1,4 @@
-import httpStatus from "http-status"
+// import httpStatus from "http-status"
 import config from "../../config"
 import { User } from "../user/user.model"
 import { TLoginUser } from "./auth.interface"
@@ -10,11 +10,11 @@ const loginUser = async (payload: TLoginUser) => {
     console.log(user)
 
     if (!user) {
-        throw new AppError(httpStatus.NOT_FOUND, 'This user is not found')
+        throw new AppError(400, 'This user is not found')
     }
 
     if (!(await User.isPasswordMatched(payload?.password, user?.password))) {
-        throw new AppError(httpStatus.FORBIDDEN, 'Invalid Password')
+        throw new AppError(403, 'Invalid Password')
     }
 
     const jwtPayload = {
